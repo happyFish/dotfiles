@@ -1,0 +1,19 @@
+{
+	"auto_upgrade_last_run": null,
+	"installed_packages":
+	[
+		"Alignment",
+		"Backbone.js",
+		"Can I Use",
+		"Clipboard History",
+		"CoffeeScript",
+		"DocBlockr",
+		"Emmet",
+		"Gist",
+		"JSHint",
+		"Package Control",
+		"Sass",
+		"SublimeTODO",
+		"ZenCoding"
+	]
+}
