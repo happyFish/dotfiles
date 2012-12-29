@@ -509,7 +509,7 @@ defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false
 ###############################################################################
 
 # Copy all the user prefs and snippets
-cp -fR "${HOME}/init/SublimeText2/*" "${HOME}/Library/Application Support/Sublime Text 2/Packages/User/"
+rsync -r "${HOME}/init/SublimeText2/*" "${HOME}/Library/Application Support/Sublime Text 2/Packages"
 
 ###############################################################################
 # Transmission.app                                                            #
