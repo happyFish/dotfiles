@@ -1,0 +1,41 @@
+<snippet>
+	<content><![CDATA[
+window.TOG = window.TOG || {};
+TOG.${1} = TOG.${1} || {};
+
+(function(window, \$)
+{
+	TOG.${1}.${2} = function()
+	{
+		var self = {},
+
+		;
+
+		var attachEvents = function(){
+		
+		};
+
+		var init = function(){
+			
+			attachEvents();
+		};
+
+		return{
+			init: init
+		}
+	};
+
+	// Load Self
+	\$(function() {
+		var ${2} = new TOG.${1}.${2}();
+		${2}.init();
+	});
+
+}(window, jQuery));
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>togjs</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
