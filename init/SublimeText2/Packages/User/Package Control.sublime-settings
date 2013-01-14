@@ -1,0 +1,13 @@
+{
+	"installed_packages":
+	[
+		"Alignment",
+		"BeautifyRuby",
+		"Compass",
+		"ERB Snippets",
+		"Package Control",
+		"Rails Related Files",
+		"Sass",
+		"ZenCoding"
+	]
+}

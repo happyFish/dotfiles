@@ -1,0 +1,9 @@
+{
+	"font_size": 12.0,
+	"ignored_packages":
+	[
+		"Vintage",
+		"BeautifyRuby"
+	],
+	"tab_size": 2
+}
