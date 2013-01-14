@@ -12,11 +12,15 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # General UI/UX                                                               #
 ###############################################################################
 
+echo "What do you want to call this computer?"
+
+read name
+
 # Set computer name (as done via System Preferences → Sharing)
-# sudo scutil --set ComputerName "MathBook Pro"
-# sudo scutil --set HostName "MathBook Pro"
-# sudo scutil --set LocalHostName "MathBook-Pro"
-# sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "MathBook-Pro"
+sudo scutil --set ComputerName "$name"
+sudo scutil --set HostName "$name"
+sudo scutil --set LocalHostName "$name"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$name"
 
 # Menu bar: disable transparency
 # defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
@@ -157,15 +161,19 @@ systemsetup -settimezone "America/New_York" > /dev/null
 # Disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
+# Add Zoom Quick Key -- CMD+Shft+M
+defaults write NSGlobalDomain NSUserKeyEquivalents '{"Zoom"="@$m";}'
+
 ###############################################################################
 # Screen                                                                      #
 ###############################################################################
 
-# Require password 5 minutes after sleep or screen saver begins
+# Require password 1 minute after sleep or screen saver begins
 defaults write com.apple.screensaver askForPassword -int 1
-defaults write com.apple.screensaver askForPasswordDelay -int 300000
+defaults write com.apple.screensaver askForPasswordDelay -int 1000
 
 # Save screenshots to the desktop
+mkdir "$HOME/Desktop/Screenshots"
 defaults write com.apple.screencapture location -string "$HOME/Desktop/Screenshots"
 
 # Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
@@ -185,7 +193,7 @@ sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutio
 ###############################################################################
 
 # Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons
-defaults write com.apple.finder QuitMenuItem -bool true
+# defaults write com.apple.finder QuitMenuItem -bool true
 
 # Finder: disable window animations and Get Info animations
 # defaults write com.apple.finder DisableAllAnimations -bool true
@@ -430,7 +438,7 @@ defaults write com.apple.mail NSUserKeyEquivalents -dict-add "Send" "@\\U21a9"
 ###############################################################################
 
 # Only use UTF-8 in Terminal.app
-defaults write com.apple.terminal StringEncodings -array 4
+# defaults write com.apple.terminal StringEncodings -array 4
 
 # Use a modified version of the Pro theme by default in Terminal.app
 open "$HOME/Magic.terminal"
