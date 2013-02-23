@@ -96,6 +96,11 @@ systemsetup -setrestartfreeze on
 # Check for software updates daily, not just once per week
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 
+# Disable notifications bar
+defaults write /System/Library/LaunchAgents/com.apple.notificationcenterui KeepAlive -bool false
+launchctl remove com.apple.notificationcenterui.agent
+
+
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
 ###############################################################################
